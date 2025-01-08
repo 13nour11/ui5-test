@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.fal.arabian.controller.EmployeeTransferTable">
-    <Table id="employeeTable" headerText="Employee List" items="{employeeModel>/employees}">
+    <Table id="employeeTable" headerText="Employee List" items="{employeeModel>/}">
         <columns>
             <Column>
                 <Text text="Employee ID" />

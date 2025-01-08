@@ -19,13 +19,6 @@
     }
   },
   "sap.ui5": {
-    "proxy": {
-      "/odata": {
-        "targetUri": "https://eco-ds-arabian-fal-dev-mc6enm46-dev-ppm-portal-final-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/ContractService/",
-        "changeOrigin": true,
-        "secure": false
-      }
-    },
     "componentName": "com.fal.arabian",
     "rootView": {
       "viewName": "com.fal.arabian.view.Main",

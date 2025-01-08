@@ -20,7 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
   
       // Bind the table to the Employee entity set
       oTable.bindItems({
-          path: "employeeModel>/employees", // Path for employees
+          path: "employeeModel>/", // Path for employees
           template: new sap.m.ColumnListItem({
               cells: [
                   new sap.m.Text({ text: "{employeeModel>employeeId}" }),

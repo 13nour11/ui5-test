@@ -43,43 +43,43 @@
 // 	}
 // );
 
+
 sap.ui.define(
 	["sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel"],
 	function (UIComponent, JSONModel) {
-	  "use strict";
-  
-	  return UIComponent.extend("com.fal.arabian.Component", {
-		metadata: {
-		  manifest: "json"
-		},
-  
-		init: function () {
-		  // Call the base initialization function (UIComponent)
-		  UIComponent.prototype.init.apply(this, arguments);
-  
-		  // Create the JSON model for employee data
-		  const oModel = new JSONModel("http://localhost:3000/employees");
-		  this.setModel(oModel, "employeeModel");
-  
-		  // Log the model data in the console
-		  oModel.attachRequestCompleted(function () {
-			console.log("Employee Data: ", oModel.getData());
-		  });
+		"use strict";
 
-		//   oModel.refresh(true); // لتحديث النموذج بعد تحميل البيانات
+		return UIComponent.extend("com.fal.arabian.Component", {
+			metadata: {
+				manifest: "json",
+			},
 
-		  // Initialize the router (for navigation purposes)
-		  this.getRouter().initialize();
-		},
-  
-		createContent: function () {
-		  // Create and return the root view
-		  return sap.ui.view({
-			viewName: "com.fal.arabian.view.Main",
-			type: "XML"
-		  });
-		}
-	  });
+			init: function () {
+				// Call the base initialization function (UIComponent)
+				UIComponent.prototype.init.apply(this, arguments);
+
+				// Create the JSON model for employee data
+				const oModel = new JSONModel("http://localhost:3000/employees");
+				this.setModel(oModel, "employeeModel");
+
+				// Log the model data in the console
+				oModel.attachRequestCompleted(function () {
+					console.log("Employee Data: ", oModel.getData());
+				});
+
+				//   oModel.refresh(true); // لتحديث النموذج بعد تحميل البيانات
+
+				// Initialize the router (for navigation purposes)
+				this.getRouter().initialize();
+			},
+
+			createContent: function () {
+				// Create and return the root view
+				return sap.ui.view({
+					viewName: "com.fal.arabian.view.Main",
+					type: "XML",
+				});
+			},
+		});
 	}
-  );
-  
+);
