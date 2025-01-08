@@ -1,9 +1,17 @@
 <mvc:View
-	controllerName="com.fal.arabian.controller.App"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+  controllerName="com.fal.arabian.controller.App"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
 
-	<App id="app" />
+  <App id="app">
+    <pages>
+      <Page id="employeeTransferPage" title="Employee Transfer">
+        <content>
+          <mvc:XMLView viewName="com.fal.arabian.view.EmployeeTransferTable" />
+        </content>
+      </Page>
+    </pages>
+  </App>
 
 </mvc:View>

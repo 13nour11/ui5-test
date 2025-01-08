@@ -1,9 +1,13 @@
-sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController, MessageBox) {
-	"use strict";
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], function (Controller) {
+    "use strict";
 
-	return BaseController.extend("com.fal.arabian.controller.Main", {
-		sayHello: function () {
-			MessageBox.show("Hello World!");
-		}
-	});
+    return Controller.extend("com.fal.arabian.controller.Main", {
+
+        onInit: function () {
+            // Initialize the controller
+        }
+
+    });
 });

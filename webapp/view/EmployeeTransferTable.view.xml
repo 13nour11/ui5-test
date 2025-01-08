@@ -1,0 +1,33 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.fal.arabian.controller.EmployeeTransferTable">
+    <Table id="employeeTable" headerText="Employee List" items="{employeeModel>/employees}">
+        <columns>
+            <Column>
+                <Text text="Employee ID" />
+            </Column>
+            <Column>
+                <Text text="First Name" />
+            </Column>
+            <Column>
+                <Text text="Last Name" />
+            </Column>
+            <Column>
+                <Text text="Work Center" />
+            </Column>
+            <Column>
+                <Text text="Cost Center" />
+            </Column>
+        </columns>
+
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{employeeModel>employeeId}" />
+                    <Text text="{employeeModel>firstName}" />
+                    <Text text="{employeeModel>lastName}" />
+                    <Text text="{employeeModel>workCenter_ID}" />
+                    <Text text="{employeeModel>costCenter_ID}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>
