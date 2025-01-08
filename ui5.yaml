@@ -8,16 +8,6 @@ framework:
   libraries:
     - name: sap.m
     - name: sap.ui.core
-    - name: themelib_sap_horizon
 builder:
   resources:
-    excludes:
-      - "test/e2e/**"
-server:
-  customMiddleware:
-    - name: http-proxy-middleware
-      mountPath: /odata
-      configuration:
-        target: "https://eco-ds-arabian-fal-dev-mc6enm46-dev-ppm-portal-final-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/ContractService/"
-        changeOrigin: true
-        secure: false
+    excludes: []
