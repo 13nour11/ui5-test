@@ -1,42 +1,34 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
-	"use strict";
+  "use strict";
 
-	return Controller.extend("com.fal.arabian.controller.EmployeeTransferTable", {
-		onInit: function () {
-      const oTable = this.byId("employeeTable");
-  
-      // Get the model from the component and set it
-      const oModel = this.getOwnerComponent().getModel("employeeModel");
-  
-      // Check the data in the console
-      console.log(oModel.getData()); // Print the model data
-  
-      // Ensure that data is loaded correctly and set the model to the table
-      if (oModel.getData().employees && oModel.getData().employees.length > 0) {
-          oTable.setModel(oModel); // Set the model to the table
-      } else {
-          console.error("No data available in the model.");
+  return Controller.extend("com.fal.arabian.controller.EmployeeTransferTable", {
+      onInit: function () {
+          const oTable = this.byId("employeeTable");
+
+          // Get the model from the component
+          const oModel = this.getOwnerComponent().getModel("employeeModel");
+
+          // Log the model data in the console when the data is fully loaded
+          oModel.attachRequestCompleted(function () {
+              console.log("Employee Data: ", oModel.getData());
+
+              // Bind the table only after data is fully loaded
+              oTable.setModel(oModel);
+
+              // Now bind the table to the employee data
+              oTable.bindItems({
+                  path: "employeeModel>/",  // Correct path to the employee array
+                  template: new sap.m.ColumnListItem({
+                      cells: [
+                          new sap.m.Text({ text: "{employeeModel>employeeId}" }),
+                          new sap.m.Text({ text: "{employeeModel>firstName}" }),
+                          new sap.m.Text({ text: "{employeeModel>lastName}" }),
+                          new sap.m.Text({ text: "{employeeModel>workCenter_ID}" }),
+                          new sap.m.Text({ text: "{employeeModel>costCenter_ID}" })
+                      ]
+                  })
+              });
+          });
       }
-  
-      // Bind the table to the Employee entity set
-      oTable.bindItems({
-          path: "employeeModel>/", // Path for employees
-          template: new sap.m.ColumnListItem({
-              cells: [
-                  new sap.m.Text({ text: "{employeeModel>employeeId}" }),
-                  new sap.m.Text({ text: "{employeeModel>firstName}" }),
-                  new sap.m.Text({ text: "{employeeModel>lastName}" }),
-                  new sap.m.Text({ text: "{employeeModel>workCenter_ID}" }),
-                  new sap.m.Text({ text: "{employeeModel>costCenter_ID}" })
-              ]
-          })
-      });
-  }
-,  
-
-		// onNextPress: function () {
-		//   // Handle the Next button press
-		//   sap.m.MessageToast.show("Next button pressed");
-		// }
-	});
+  });
 });
